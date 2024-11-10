@@ -32,15 +32,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="mx-auto pt-20 font-bayon text-6xl w-6/12">
-        <h2 className="text-center">Apakah anda</h2>
-
-        <h2 className="text-start">Yakin telah mengetahui</h2>
-        <h2 className="text-end">
-          tentang <span className="text-[#D64949]">sampah</span>?
-        </h2>
-      </div>
-
       <div ref={ref} className="relative max-w-5xl mx-auto pb-20">
         {data.map((item, index) => (
           <div

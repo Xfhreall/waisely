@@ -41,7 +41,7 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
           inputComponent={InputComponent}
           smartCaret={false}
           onChange={(value) => {
-            if (onChange) {
+            if (onChange && value !== undefined) {
               onChange(value);
             }
           }}

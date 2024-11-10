@@ -14,11 +14,14 @@ const Hero = () => {
       <main className="w-10/12 h-full flex mx-auto">
         <div className="my-auto w-10/12 space-y-4">
           <h1 className="font-bayon text-8xl">Waisely</h1>
+          <p className="text-xl font-bold">
+            Kelola Sampah Anda, Kami Tuntaskan dengan Tuntas!
+          </p>
           <p className="text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-            deleniti vel ullam culpa omnis rerum recusandae consectetur voluptas
-            quod tempora! Voluptatum, harum voluptate tenetur nostrum quod animi
-            quam adipisci corrupti.
+            Dengan menghadirkan solusi inovatif dalam pengelolaan sampah,
+            platform ini memiliki tujuan untuk membentuk generasi yang peduli
+            lingkungan dan mendukung tercapainya Indonesia Emas 2045, sebuah
+            visi Indonesia yang bersih, maju, dan sehat.{" "}
           </p>
         </div>
       </main>

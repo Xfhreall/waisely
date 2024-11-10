@@ -14,7 +14,7 @@ const Solusi = () => {
       <div className="absolute h-48 w-full top-0 bg-gradient-to-b from-neutral-950 to-transparent"></div>
       <div className="absolute h-32 w-full bottom-0 bg-gradient-to-t from-neutral-950 to-transparent"></div>
       <main className="w-full h-full flex justify-center items-center">
-        <div className="w-10/12 font-bayon text-7xl">
+        <div className="w-10/12 font-bayon text-7xl tracking-wide">
           <h3 className="font-bold text-center text-white">
             Maka Waisely hadir
           </h3>

@@ -20,12 +20,7 @@ const About = () => {
             <h2 className="text-end">Waisely</h2>
           </div>
           <p className="w-7/12 leading-8">
-            {`Waisely adalah platform atau layanan yang berfokus pada pengelolaan
-          sampah secara bijak dan bertanggung jawab. Nama Waisely merupakan
-          akronim dari kata "Waste" (sampah) dan "Wisely" (dengan bijak), yang
-          mencerminkan misi utama platform ini yaitu, membantu masyarakat
-          mengelola sampah dengan cara yang lebih efektif, berkelanjutan, dan
-          ramah lingkungan.`}
+            {`Waisely adalah platform atau layanan yang berfokus pada pengelolaan sampah secara bijak dan bertanggung jawab. Nama Waisely merupakan akronim dari kata "Waste" (sampah) dan "Wisely" (dengan bijak), yang mencerminkan misi utama platform ini yaitu, membantu masyarakat mengelola sampah dengan cara yang lebih efektif, berkelanjutan, dan ramah lingkungan. Melalui pemberdayaan masyarakat dan edukasi yang terus dikembangkan, Waisely berkomitmen menciptakan ekosistem hijau yang mendukung pembangunan berkelanjutan serta masa depan yang cerah bagi generasi mendatang.`}
           </p>
         </div>
       </main>

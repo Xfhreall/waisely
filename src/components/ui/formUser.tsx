@@ -25,19 +25,29 @@ import {
 } from "@/components/ui/extension/multi-select";
 
 const formSchema = z.object({
-  name_4177587938: z.string(),
-  name_1345784266: z.string(),
-  name_4168957016: z.string(),
-  name_1321294323: z.string(),
-  name_9533173164: z.array(z.string()).nonempty("Please at least one item"),
+  nama: z.string().min(1, "Masukkan nama anda"),
+  telfon: z
+    .string()
+    .min(13, "Nomor telepon harus minimal 10 digit")
+    .max(18, "Nomor telepon tidak boleh lebih dari 15 digit"),
+  alamat: z.string().min(3, "Masukkan alamat anda"),
+  link: z.string().url("Masukkan link yang valid"),
+  jadwal: z.array(z.string()).nonempty("Pilih setidaknya satu hari"),
 });
+
+const hari = [
+  { value: "Senin", label: "Senin" },
+  { value: "Selasa", label: "Selasa" },
+  { value: "Rabu", label: "Rabu" },
+  { value: "Kamis", label: "Kamis" },
+  { value: "Jumat", label: "Jumat" },
+  { value: "Sabtu", label: "sabtu" },
+  { value: "Minggu", label: "Minggu" },
+];
 
 export default function MyForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name_9533173164: ["React"],
-    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -58,18 +68,17 @@ export default function MyForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 max-w-3xl mx-auto py-10"
+        className="space-y-4 max-w-3xl"
       >
         <FormField
           control={form.control}
-          name="name_4177587938"
+          name="nama"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Nama</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" type="" {...field} />
+                <Input placeholder="Nama" type="text" {...field} />
               </FormControl>
-              <FormDescription>Nama</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -77,18 +86,18 @@ export default function MyForm() {
 
         <FormField
           control={form.control}
-          name="name_1345784266"
+          name="telfon"
           render={({ field }) => (
             <FormItem className="flex flex-col items-start">
-              <FormLabel>Phone number</FormLabel>
+              <FormLabel>Nomor Telepon</FormLabel>
               <FormControl className="w-full">
                 <PhoneInput
                   placeholder="8xxxxx"
                   {...field}
-                  defaultCountry="TR"
+                  defaultCountry="ID"
+                  type="nummber"
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
@@ -96,12 +105,12 @@ export default function MyForm() {
 
         <FormField
           control={form.control}
-          name="name_4168957016"
+          name="alamat"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Alamat</FormLabel>
               <FormControl>
-                <Input placeholder="Alamat" type="" {...field} />
+                <Input placeholder="Alamat" type="text" {...field} />
               </FormControl>
 
               <FormMessage />
@@ -111,14 +120,13 @@ export default function MyForm() {
 
         <FormField
           control={form.control}
-          name="name_1321294323"
+          name="link"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Link Google Maps</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" type="" {...field} />
+                <Input placeholder="Link" type="text" {...field} />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
@@ -126,7 +134,7 @@ export default function MyForm() {
 
         <FormField
           control={form.control}
-          name="name_9533173164"
+          name="jadwal"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Pilihan Hari:</FormLabel>
@@ -135,20 +143,23 @@ export default function MyForm() {
                   values={field.value}
                   onValuesChange={field.onChange}
                   loop
-                  className="max-w-xs"
+                  className="w-full"
                 >
                   <MultiSelectorTrigger>
-                    <MultiSelectorInput placeholder="Select languages" />
+                    <MultiSelectorInput
+                      placeholder="Pilih hari"
+                      className="text-sm w-full"
+                    />
                   </MultiSelectorTrigger>
                   <MultiSelectorContent>
                     <MultiSelectorList>
-                      <MultiSelectorItem value={"React"}>
-                        React
-                      </MultiSelectorItem>
-                      <MultiSelectorItem value={"Vue"}>Vue</MultiSelectorItem>
-                      <MultiSelectorItem value={"Svelte"}>
-                        Svelte
-                      </MultiSelectorItem>
+                      {hari.map((data, index) => (
+                        <div key={index}>
+                          <MultiSelectorItem value={data.value}>
+                            {data.label}
+                          </MultiSelectorItem>
+                        </div>
+                      ))}
                     </MultiSelectorList>
                   </MultiSelectorContent>
                 </MultiSelector>
@@ -161,7 +172,12 @@ export default function MyForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button
+          type="submit"
+          className="bg-transparent text-neutral-100 border-neutral-100 border rounded-2xl hover:text-neutral-800 py-3 px-10 "
+        >
+          Kirim
+        </Button>
       </form>
     </Form>
   );

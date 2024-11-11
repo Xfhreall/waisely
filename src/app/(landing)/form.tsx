@@ -3,7 +3,7 @@ import React from "react";
 
 const Form = () => {
   return (
-    <section className="h-screen w-full">
+    <section className="h-auto w-full">
       <MyForm />
     </section>
   );

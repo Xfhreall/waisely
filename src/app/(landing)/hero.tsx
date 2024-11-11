@@ -17,10 +17,10 @@ const Hero = () => {
     setMounted(true);
   }, []);
 
-  const text = "Waisely";
+  const text = "waisely";
 
   const getInitialPosition = (char: string): Position => {
-    switch (char.toLowerCase()) {
+    switch (char) {
       case "w":
         return { x: "100vw", y: "100vh" };
       case "s":
@@ -77,8 +77,8 @@ const Hero = () => {
                       type: "spring",
                       damping: 12,
                       stiffness: 100,
-                      duration: 6,
-                      delay: index * 0.2,
+                      duration: 1,
+                      delay: index * 0.1,
                     }}
                     className="inline-block"
                   >
@@ -87,15 +87,22 @@ const Hero = () => {
                 );
               })}
           </h1>
-          <p className="text-xl font-bold">
-            Kelola Sampah Anda, Kami Tuntaskan dengan Tuntas!
-          </p>
-          <p className="text-xl">
-            Dengan menghadirkan solusi inovatif dalam pengelolaan sampah,
-            platform ini memiliki tujuan untuk membentuk generasi yang peduli
-            lingkungan dan mendukung tercapainya Indonesia Emas 2045, sebuah
-            visi Indonesia yang bersih, maju, dan sehat.
-          </p>
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+            className="space-y-4"
+          >
+            <p className="text-xl font-bold">
+              Kelola Sampah Anda, Kami Tuntaskan dengan Tuntas!
+            </p>
+            <p className="text-xl">
+              Dengan menghadirkan solusi inovatif dalam pengelolaan sampah,
+              platform ini memiliki tujuan untuk membentuk generasi yang peduli
+              lingkungan dan mendukung tercapainya Indonesia Emas 2045, sebuah
+              visi Indonesia yang bersih, maju, dan sehat.
+            </p>
+          </motion.div>
         </div>
       </main>
     </section>

@@ -56,20 +56,20 @@ const useMultiSelect = () => {
 // TODO : expose the visibility of the popup
 
 const MultiSelector = ({
-  values: value,
+  values: value = [],
   onValuesChange: onValueChange,
-  loop = false,
+  loop,
   className,
   children,
   dir,
   ...props
 }: MultiSelectorProps) => {
-  const [inputValue, setInputValue] = useState("");
   const [open, setOpen] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [isValueSelected, setIsValueSelected] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState("");
+  const [inputValue, setInputValue] = useState<string>("");
 
   const onValueChangeHandler = useCallback(
     (val: string) => {
@@ -79,21 +79,21 @@ const MultiSelector = ({
         onValueChange([...value, val]);
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [value]
+    [value, onValueChange]
   );
 
   const handleSelect = React.useCallback(
     (e: React.SyntheticEvent<HTMLInputElement>) => {
       e.preventDefault();
       const target = e.currentTarget;
-      const selection = target.value.substring(
-        target.selectionStart ?? 0,
-        target.selectionEnd ?? 0
-      );
-
-      setSelectedValue(selection);
-      setIsValueSelected(selection === inputValue);
+      if (target) {
+        const selection = target.value.substring(
+          target.selectionStart ?? 0,
+          target.selectionEnd ?? 0
+        );
+        setSelectedValue(selection);
+        setIsValueSelected(selection === inputValue);
+      }
     },
     [inputValue]
   );
@@ -103,8 +103,7 @@ const MultiSelector = ({
       e.stopPropagation();
       const target = inputRef.current;
 
-      if (!target) return;
-
+      if (!target || activeIndex === undefined) return;
       const moveNext = () => {
         const nextIndex = activeIndex + 1;
         setActiveIndex(
@@ -203,7 +202,7 @@ const MultiSelector = ({
       <Command
         onKeyDown={handleKeyDown}
         className={cn(
-          "overflow-visible bg-transparent flex flex-col space-y-2",
+          "overflow-visible bg-transparent flex flex-col",
           className
         )}
         dir={dir}
@@ -230,7 +229,7 @@ const MultiSelectorTrigger = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "flex flex-wrap gap-1 p-1 py-2 ring-1 ring-muted rounded-lg bg-background",
+        "flex gap-1 p-1 py-2 ring-1 ring-neutral-100 rounded-lg bg-transparent w-full",
         {
           "ring-1 focus-within:ring-ring": activeIndex === -1,
         },
@@ -238,62 +237,54 @@ const MultiSelectorTrigger = forwardRef<
       )}
       {...props}
     >
-      {value.map((item, index) => (
-        <Badge
-          key={item}
-          className={cn(
-            "px-1 rounded-xl flex items-center gap-1",
-            activeIndex === index && "ring-2 ring-muted-foreground "
-          )}
-          variant={"secondary"}
-        >
-          <span className="text-xs">{item}</span>
-          <button
-            aria-label={`Remove ${item} option`}
-            aria-roledescription="button to remove option"
-            type="button"
-            onMouseDown={mousePreventDefault}
-            onClick={() => onValueChange(item)}
-          >
-            <span className="sr-only">Remove {item} option</span>
-            <RemoveIcon className="h-4 w-4 hover:stroke-destructive" />
-          </button>
-        </Badge>
-      ))}
+      {value
+        ? value.map((item, index) => (
+            <Badge
+              key={item}
+              className={cn(
+                "px-1 rounded-xl flex items-center gap-1",
+                activeIndex === index && "ring-2 ring-muted-foreground "
+              )}
+              variant={"secondary"}
+            >
+              <span className="text-xs">{item}</span>
+              <button
+                aria-label={`Remove ${item} option`}
+                aria-roledescription="button to remove option"
+                type="button"
+                onMouseDown={mousePreventDefault}
+                onClick={() => onValueChange(item)}
+              >
+                <span className="sr-only">Remove {item} option</span>
+                <RemoveIcon className="h-4 w-4 hover:stroke-destructive" />
+              </button>
+            </Badge>
+          ))
+        : null}
       {children}
     </div>
   );
 });
-
 MultiSelectorTrigger.displayName = "MultiSelectorTrigger";
 
 const MultiSelectorInput = forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }) => {
-  const {
-    setOpen,
-    inputValue,
-    setInputValue,
-    activeIndex,
-    setActiveIndex,
-    handleSelect,
-    ref: inputRef,
-  } = useMultiSelect();
+  const { setOpen, inputValue, activeIndex, setActiveIndex, handleSelect } =
+    useMultiSelect();
 
   return (
     <CommandPrimitive.Input
       {...props}
       tabIndex={0}
-      ref={inputRef}
       value={inputValue}
-      onValueChange={activeIndex === -1 ? setInputValue : undefined}
       onSelect={handleSelect}
       onBlur={() => setOpen(false)}
       onFocus={() => setOpen(true)}
       onClick={() => setActiveIndex(-1)}
       className={cn(
-        "ml-2 bg-transparent outline-none placeholder:text-muted-foreground flex-1",
+        "ml-2 bg-transparent outline-none placeholder:text-muted-foreground",
         className,
         activeIndex !== -1 && "caret-transparent"
       )}
@@ -325,7 +316,7 @@ const MultiSelectorList = forwardRef<
     <CommandList
       ref={ref}
       className={cn(
-        "p-2 flex flex-col gap-2 rounded-md scrollbar-thin scrollbar-track-transparent transition-colors scrollbar-thumb-muted-foreground dark:scrollbar-thumb-muted scrollbar-thumb-rounded-lg w-full absolute bg-background shadow-md z-10 border border-muted top-0",
+        "p-2 mt-2 flex flex-col gap-2 rounded-md scrollbar-thin scrollbar-track-transparent transition-colors scrollbar-thumb-muted-foreground dark:scrollbar-thumb-muted scrollbar-thumb-rounded-lg w-full absolute bg-neutral-950 shadow-md z-10 border border-neutral-100 top-0 max-w-xs",
         className
       )}
     >
@@ -352,7 +343,7 @@ const MultiSelectorItem = forwardRef<
     e.stopPropagation();
   }, []);
 
-  const isIncluded = Options.includes(value);
+  const isIncluded = Options?.includes(value) ?? false;
   return (
     <CommandItem
       ref={ref}
@@ -370,7 +361,7 @@ const MultiSelectorItem = forwardRef<
       onMouseDown={mousePreventDefault}
     >
       {children}
-      {isIncluded && <Check className="h-4 w-4" />}
+      {isIncluded && <Check className="h-4 w-4 text" />}
     </CommandItem>
   );
 });

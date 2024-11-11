@@ -3,7 +3,8 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import { Bayon } from "next/font/google";
 import { ThemeProvider } from "@/components/themeprovider";
-
+import { Toaster } from "@/components/ui/toaster";
+import { Navbar } from "@/components/ui/navbar";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -35,7 +36,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
+          <Toaster />
         </ThemeProvider>{" "}
       </body>
     </html>

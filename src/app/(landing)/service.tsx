@@ -4,7 +4,7 @@ import Image from "next/image";
 const Service = () => {
   const serviceData = service;
   return (
-    <section className="h-screen w-full relative bg-neutral-950">
+    <section className="h-screen w-full relative bg-neutral-950" id="service">
       <main className="w-full h-full flex justify-center items-center">
         <div className="text-8xl space-y-12">
           <h2 className="text-center font-bayon">Layanan</h2>

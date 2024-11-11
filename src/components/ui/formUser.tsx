@@ -1,5 +1,6 @@
 "use client";
-import { toast } from "sonner";
+import { ToastAction } from "@/components/ui/toast";
+import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -44,23 +45,24 @@ const hari = [
   { value: "Sabtu", label: "sabtu" },
   { value: "Minggu", label: "Minggu" },
 ];
-
 export default function MyForm() {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
+  const date = new Date();
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
+      console.log(JSON.stringify(values));
+
+      toast({
+        title: "Data berhasil dikirim!",
+        description: "Created at: " + date.toLocaleDateString("id-ID"),
+        action: <ToastAction altText="Ok">Ok</ToastAction>,
+      });
     } catch (error) {
       console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
     }
   }
 
@@ -70,6 +72,7 @@ export default function MyForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-4 max-w-3xl"
       >
+        {/* Form fields */}
         <FormField
           control={form.control}
           name="nama"
@@ -95,7 +98,7 @@ export default function MyForm() {
                   placeholder="8xxxxx"
                   {...field}
                   defaultCountry="ID"
-                  type="nummber"
+                  type="number"
                 />
               </FormControl>
               <FormMessage />
@@ -112,7 +115,6 @@ export default function MyForm() {
               <FormControl>
                 <Input placeholder="Alamat" type="text" {...field} />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
@@ -172,12 +174,15 @@ export default function MyForm() {
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          className="bg-transparent text-neutral-100 border-neutral-100 border rounded-2xl hover:text-neutral-800 py-3 px-10 "
-        >
-          Kirim
-        </Button>
+
+        <div className="flex justify-end">
+          <Button
+            type="submit"
+            className="bg-transparent text-neutral-100 border-neutral-100 border rounded-2xl hover:text-neutral-800 py-3 px-10"
+          >
+            Kirim
+          </Button>
+        </div>
       </form>
     </Form>
   );

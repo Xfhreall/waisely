@@ -1,6 +1,6 @@
 const Tanya = () => {
   return (
-    <section className="h-screen w-full relative bg-neutral-950">
+    <section className="h-screen w-full relative bg-neutral-950" id="sampah">
       <div className="absolute h-48 w-full top-0 bg-gradient-to-b from-neutral-950 to-transparent"></div>
       <div className="absolute h-32 w-full bottom-0 bg-gradient-to-t from-neutral-950 to-transparent"></div>
       <main className="w-full h-full flex justify-center items-center">

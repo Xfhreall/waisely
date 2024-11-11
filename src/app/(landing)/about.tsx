@@ -4,7 +4,7 @@ import bg from "@/public/background/about.svg";
 
 const About = () => {
   return (
-    <section className="h-screen w-full relative">
+    <section className="h-screen w-full relative" id="about">
       <Image
         className="object-cover w-full h-full transform scale-x-[-1] -z-10"
         src={bg}

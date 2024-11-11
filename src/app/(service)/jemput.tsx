@@ -3,7 +3,10 @@ import jemput from "@/public/service/jemput.png";
 import Form from "../(landing)/form";
 const Jemput = () => {
   return (
-    <section className="w-full min-h-screen flex relative bg-neutral-950 py-14">
+    <section
+      className="w-full min-h-screen flex relative bg-neutral-950 py-14"
+      id="jemput"
+    >
       <main className="container flex gap-8">
         <div className="flex items-center justify-center w-max h-full">
           <Image

@@ -1,5 +1,4 @@
 "use client";
-import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -59,7 +58,6 @@ export default function MyForm() {
       toast({
         title: "Data berhasil dikirim!",
         description: "Created at: " + date.toLocaleDateString("id-ID"),
-        action: <ToastAction altText="Ok">Ok</ToastAction>,
       });
     } catch (error) {
       console.error("Form submission error", error);

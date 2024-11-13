@@ -5,6 +5,7 @@ import { Bayon } from "next/font/google";
 import { ThemeProvider } from "@/components/themeprovider";
 import { Toaster } from "@/components/ui/toaster";
 import { Navbar } from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -39,6 +40,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Toaster />
+          <Footer />
         </ThemeProvider>{" "}
       </body>
     </html>

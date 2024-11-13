@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
+import { motion, AnimatePresence } from "framer-motion";
 type Schedule = {
   location: string;
   time: string;
@@ -22,43 +22,43 @@ type ScheduleData = {
 
 const scheduleData: ScheduleData = {
   Senin: [
-    { location: "suhat", time: "5-7" },
-    { location: "panjaitan", time: "7-9" },
-    { location: "veteran", time: "9-11" },
-    { location: "sigura", time: "13-15" },
+    { location: "suhat", time: "05.00-07.00" },
+    { location: "panjaitan", time: "07.00-09.00" },
+    { location: "veteran", time: "09.00-11.00" },
+    { location: "sigura", time: "13.00-15.00" },
   ],
   Selasa: [
-    { location: "suhat", time: "5-9" },
-    { location: "veteran", time: "9-10" },
-    { location: "sigura - gura", time: "10-12" },
+    { location: "suhat", time: "05.00-09.00" },
+    { location: "veteran", time: "09.00-10.00" },
+    { location: "sigura - gura", time: "10.00-12.00" },
   ],
   Rabu: [
-    { location: "suhat", time: "5-8" },
-    { location: "sigura - gura", time: "8-11" },
+    { location: "suhat", time: "05.00-08.00" },
+    { location: "sigura - gura", time: "08.00-11.00" },
   ],
   Kamis: [
-    { location: "panjaitan", time: "5-6" },
-    { location: "ijen", time: "6-8" },
-    { location: "veteran", time: "8-9" },
-    { location: "bendungan sutami", time: "9-11" },
+    { location: "panjaitan", time: "05.00-06.00" },
+    { location: "ijen", time: "06.00-08.00" },
+    { location: "veteran", time: "08.00-09.00" },
+    { location: "bendungan sutami", time: "09.00-11.00" },
   ],
   Jumat: [
-    { location: "suhat", time: "5-6" },
-    { location: "ijen", time: "6-8" },
-    { location: "veteran", time: "8-11" },
-    { location: "merjosari", time: "13-14" },
-    { location: "sumbersari", time: "14-15" },
+    { location: "suhat", time: "05.00-06.00" },
+    { location: "ijen", time: "06.00-08.00" },
+    { location: "veteran", time: "08.00-11.00" },
+    { location: "merjosari", time: "13.00-14.00" },
+    { location: "sumbersari", time: "14.00-15.00" },
   ],
   Sabtu: [
-    { location: "belimbing", time: "5-11" },
-    { location: "suhat", time: "13-14" },
-    { location: "veteran", time: "14-15" },
+    { location: "belimbing", time: "5.00-11.00" },
+    { location: "suhat", time: "13.00-14.00" },
+    { location: "veteran", time: "14.00-15.00" },
   ],
   Minggu: [
-    { location: "belimbing", time: "5-7" },
-    { location: "suhat", time: "7-8" },
-    { location: "ijen", time: "8-11" },
-    { location: "veteran", time: "13-15" },
+    { location: "belimbing", time: "05.00-07.00" },
+    { location: "suhat", time: "07.00-08.00" },
+    { location: "ijen", time: "08.00-11.00" },
+    { location: "veteran", time: "13.00-15.00" },
   ],
 };
 
@@ -93,17 +93,28 @@ const Jadwal = () => {
                 ))}
               </SelectContent>
             </Select>
-
             {selectedDay && (
-              <ul className="space-y-3">
-                {scheduleData[selectedDay].map((schedule, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-red-500 rounded-full" />
-                    <span className="capitalize">{schedule.location}</span>
-                    <span className="text-neutral-400">({schedule.time})</span>
-                  </li>
-                ))}
-              </ul>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedDay}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ul className="space-y-3">
+                    {scheduleData[selectedDay].map((schedule, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-neutral-200 rounded-full" />
+                        <span className="capitalize">{schedule.location},</span>
+                        <span className="text-neutral-400">
+                          {schedule.time} WIB
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </AnimatePresence>
             )}
           </div>
         </div>

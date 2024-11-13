@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import darurat from "@/public/service/darurat.png";
+import Link from "next/link";
 
 const Darurat = () => {
   return (
@@ -28,8 +29,8 @@ const Darurat = () => {
             kami” agar kami dapat memverifikasi keberadaan anda. Berikut section
             terkait informasi dimana Anda dapat meminta bantuan :
           </p>
-          <button className="border border-white py-3 px-10 rounded-[20px]">
-            Hubungi Kami
+          <button className="border border-white py-3 px-10 rounded-[20px] hover:bg-neutral-100 hover:text-neutral-700 transition duration-300">
+            <Link href="#footer">Hubungi kami</Link>
           </button>
         </div>
       </main>

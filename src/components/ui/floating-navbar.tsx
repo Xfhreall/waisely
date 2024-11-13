@@ -141,7 +141,7 @@ export const FloatingNav = ({
               </div>
             ))}
             <button className="border text-sm relative border-neutral-950 hover:bg-[#D64949] hover:text-neutral-100 text-black px-6 py-1 rounded-full transition duration-300 ease-in-out">
-              <span>Hubungi Kami</span>
+              <Link href="#footer">Hubungi kami</Link>
             </button>
           </div>
         </nav>

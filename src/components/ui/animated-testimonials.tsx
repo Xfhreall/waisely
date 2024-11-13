@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 type Testimonial = {
   quote: string;
   name: string;
-  designation: string;
+  role: string;
   src: string | StaticImageData;
   rating: number;
 };
@@ -150,7 +150,7 @@ export const AnimatedTestimonials = ({
               {testimonials[active].name}
             </h3>
             <p className="text-sm text-gray-500 dark:text-neutral-500">
-              {testimonials[active].designation}
+              {testimonials[active].role}
             </p>
             <motion.p className="text-base text-gray-500 mt-4 dark:text-neutral-300">
               {testimonials[active].quote.split(" ").map((word, index) => (

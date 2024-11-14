@@ -270,12 +270,13 @@ MultiSelectorTrigger.displayName = "MultiSelectorTrigger";
 const MultiSelectorInput = forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
->(({ className, ...props }) => {
+>(({ className, ...props }, ref) => {
   const { setOpen, inputValue, activeIndex, setActiveIndex, handleSelect } =
     useMultiSelect();
 
   return (
     <CommandPrimitive.Input
+      ref={ref}
       {...props}
       tabIndex={0}
       value={inputValue}

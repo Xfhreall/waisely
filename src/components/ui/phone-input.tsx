@@ -57,9 +57,9 @@ const InputComponent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof Input>
 >(({ className, ...props }, ref) => (
   <Input
+    ref={ref}
     className={cn("rounded-e-lg rounded-s-none", className)}
     {...props}
-    ref={ref}
   />
 ));
 InputComponent.displayName = "InputComponent";

@@ -18,37 +18,42 @@ const CardService = () => {
           <h2 className="text-center font-bayon">Layanan</h2>
           <div className="flex items-center gap-16 flex-wrap justify-center">
             {service.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                layoutId={`service-${index}`}
+                className="w-[300px] h-[300px] relative cursor-pointer"
                 onClick={() => setSelectedId(index)}
-                className="w-[300px] h-[300px] justify-center items-center text-center flex relative cursor-pointer"
               >
                 <Image
                   src={item.image}
                   alt={item.title}
                   width={300}
                   height={300}
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
-                <p className="z-10 absolute max-w-sm text-3xl font-bold space-y-2">
-                  {item.title.split(" ").map((word, wordIndex) => (
-                    <span key={wordIndex} className="block">
-                      {word.toUpperCase()}
-                    </span>
-                  ))}
-                </p>
-              </motion.div>
+                <motion.div
+                  layoutId={`service-content-${index}`}
+                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50"
+                >
+                  <p className="z-10 max-w-sm text-3xl font-bold text-center text-white">
+                    {item.title.split(" ").map((word, wordIndex) => (
+                      <span key={wordIndex} className="block">
+                        {word.toUpperCase()}
+                      </span>
+                    ))}
+                  </p>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </main>
-
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence>
         {selectedId !== null && (
           <motion.div
-            layoutId={`service-${selectedId}`}
-            className="fixed inset-0 backdrop-blur-sm bg-opacity-50 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 backdrop-blur-sm bg-black bg-opacity-50 flex items-center justify-center z-50"
             onClick={() => setSelectedId(null)}
           >
             <motion.div
@@ -62,15 +67,19 @@ const CardService = () => {
                 height={400}
                 className="object-cover w-full h-64 mb-4 rounded-xl"
               />
-              <div className="text-neutral-800 space-y-2">
+              <motion.div
+                layoutId={`service-content-${selectedId}`}
+                className="text-neutral-800 space-y-2"
+              >
                 <h3 className="text-3xl font-bold">
                   {service[selectedId].title.toUpperCase()}
                 </h3>
                 <p className="text-base">{service[selectedId].description}</p>
-              </div>
+              </motion.div>
               <button
                 onClick={() => setSelectedId(null)}
                 className="bg-neutral-900 text-neutral-100 px-4 py-2 rounded w-20 ml-auto mt-4"
+                aria-label="Close details"
               >
                 Close
               </button>

@@ -3,6 +3,8 @@ import desta from "@/public/testimoni/desta.jpg";
 import mozaki from "@/public/testimoni/mozaki.jpg";
 import fauzan from "@/public/testimoni/fauzan.jpg";
 import farel from "@/public/testimoni/farel.jpg";
+import melody from "@/public/testimoni/melody.jpg";
+import zahra from "@/public/testimoni/zahra.jpg";
 
 export type Testimonial = {
   quote: string;
@@ -37,7 +39,7 @@ export const allTestimonials: AllTestimonials = {
       name: "Mozaki",
       role: "Kepala Keluarga",
       src: mozaki,
-      rating: 4.5,
+      rating: 5,
     },
   ],
   "pengada acara": [
@@ -52,9 +54,9 @@ export const allTestimonials: AllTestimonials = {
     {
       quote:
         "Acara kami berjalan lancar tanpa masalah sampah. Layanan yang sangat direkomendasikan!",
-      name: "Dewi Lestari",
+      name: "Vincetia Melody",
       role: "Manajer Acara",
-      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: melody,
       rating: 4.5,
     },
   ],
@@ -70,10 +72,10 @@ export const allTestimonials: AllTestimonials = {
     {
       quote:
         "Layanan pengangkutan sampah yang cepat dan bersih. Sangat membantu bisnis kami.",
-      name: "Linda Wijaya",
+      name: "Ana Zahra",
       role: "Pemilik Restoran",
-      src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      rating: 4,
+      src: zahra,
+      rating: 4.4,
     },
   ],
 };

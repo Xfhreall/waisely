@@ -87,22 +87,27 @@ const Hero = () => {
                 );
               })}
           </h1>
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.1 }}
-            className="space-y-4"
-          >
-            <p className="text-xl font-bold">
+          <div className="space-y-4">
+            <motion.p
+              className="text-xl font-bold"
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 1.1 }}
+            >
               Kelola Sampah Anda, Kami Tuntaskan dengan Tuntas!
-            </p>
-            <p className="text-xl">
+            </motion.p>
+            <motion.p
+              className="text-xl"
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.7, delay: 1.6 }}
+            >
               Dengan menghadirkan solusi inovatif dalam pengelolaan sampah,
               platform ini memiliki tujuan untuk membentuk generasi yang peduli
               lingkungan dan mendukung tercapainya Indonesia Emas 2045, sebuah
               visi Indonesia yang bersih, maju, dan sehat.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
         </div>
       </main>
     </section>

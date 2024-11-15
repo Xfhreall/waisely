@@ -10,6 +10,8 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
+import title from "@/public/assets/title.png";
 
 export const FloatingNav = ({
   navItems,
@@ -67,23 +69,23 @@ export const FloatingNav = ({
     <AnimatePresence mode="wait">
       <motion.div
         initial={{
-          opacity: 1,
-          y: -100,
+          opacity: 0,
+          y: -200,
         }}
         animate={{
-          y: visible ? 0 : -100,
+          y: visible ? 20 : -200,
           opacity: visible ? 1 : 0,
         }}
         transition={{
           duration: 0.2,
         }}
         className={cn(
-          "flex w-10/12 fixed top-10 inset-x-0 mx-auto border border-transparent rounded-[20px] bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-12 py-5 items-center justify-center space-x-4",
+          "flex w-10/12 fixed inset-x-0 mx-auto border border-transparent rounded-[20px] bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-12 py-5 items-center justify-center space-x-4",
           className
         )}
       >
         <nav className="flex w-full font-medium items-center">
-          <h1 className="font-bayon text-neutral-950 text-3xl">Waisely</h1>
+          <Image src={title} alt="title" className="h-full w-auto" />
           <div className="flex ml-auto gap-8 items-center">
             {navItems.map((navItem, idx) => (
               <div

@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/themeprovider";
 import { Toaster } from "@/components/ui/toaster";
 import { Navbar } from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
+import LoadingProvider from "@/components/loadingprovider";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -37,11 +38,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
-          <Toaster />
-          <Footer />
-        </ThemeProvider>{" "}
+          <LoadingProvider>
+            <Navbar />
+            {children}
+            <Toaster />
+            <Footer />
+          </LoadingProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

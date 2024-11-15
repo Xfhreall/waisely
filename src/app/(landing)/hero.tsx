@@ -78,7 +78,7 @@ const Hero = () => {
                       damping: 12,
                       stiffness: 100,
                       duration: 1,
-                      delay: index * 0.1,
+                      delay: 2.2 + index * 0.1,
                     }}
                     className="inline-block"
                   >
@@ -92,7 +92,7 @@ const Hero = () => {
               className="text-xl font-bold"
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 1.1 }}
+              transition={{ duration: 1, delay: 3.3 }}
             >
               Kelola Sampah Anda, Kami Tuntaskan dengan Tuntas!
             </motion.p>
@@ -100,7 +100,7 @@ const Hero = () => {
               className="text-xl"
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, delay: 1.6 }}
+              transition={{ duration: 0.7, delay: 3.8 }}
             >
               Dengan menghadirkan solusi inovatif dalam pengelolaan sampah,
               platform ini memiliki tujuan untuk membentuk generasi yang peduli

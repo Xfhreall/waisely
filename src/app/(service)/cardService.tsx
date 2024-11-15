@@ -20,7 +20,7 @@ const CardService = () => {
             {service.map((item, index) => (
               <div
                 key={index}
-                className="w-[300px] h-[300px] relative cursor-pointer"
+                className="w-[300px] h-[300px] relative cursor-pointer hover:scale-105 transition-all duration-300"
                 onClick={() => setSelectedId(index)}
               >
                 <Image
@@ -32,7 +32,7 @@ const CardService = () => {
                 />
                 <motion.div
                   layoutId={`service-content-${index}`}
-                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50"
+                  className="absolute inset-0 flex items-center justify-center"
                 >
                   <p className="z-10 max-w-sm text-3xl font-bold text-center text-white">
                     {item.title.split(" ").map((word, wordIndex) => (

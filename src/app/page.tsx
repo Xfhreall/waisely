@@ -10,16 +10,20 @@ import { Testimoni } from "./(landing)/testimoni";
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <About />
-      <Tanya />
-      <Definisi />
-      <Data />
-      <Solusi />
-      <Service />
-      <Testimoni />
-      <Quotes />
-    </>
+    <main className="relative">
+      <section className="-z-[11] sticky top-0">
+        <Hero />
+      </section>
+      <section className="z-10 shadow-xl">
+        <About />
+        <Tanya />
+        <Definisi />
+        <Data />
+        <Solusi />
+        <Service />
+        <Testimoni />
+        <Quotes />
+      </section>
+    </main>
   );
 }

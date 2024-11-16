@@ -5,8 +5,9 @@ import { service } from "@/lib/service";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-const CardService = () => {
+export default function Component() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <section
@@ -15,13 +16,25 @@ const CardService = () => {
     >
       <main className="w-full h-full flex justify-center items-center py-16">
         <div className="text-8xl space-y-12">
-          <h2 className="text-center font-bayon">Layanan</h2>
+          <h2 className="text-center font-bayon text-white">Layanan</h2>
           <div className="flex items-center gap-16 flex-wrap justify-center">
             {service.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="w-[300px] h-[300px] relative cursor-pointer hover:scale-105 transition-all duration-300"
+                className="w-[300px] h-[300px] relative cursor-pointer"
                 onClick={() => setSelectedId(index)}
+                onHoverStart={() => setHoveredId(index)}
+                onHoverEnd={() => setHoveredId(null)}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  filter:
+                    hoveredId !== null && hoveredId !== index
+                      ? "blur(4px)"
+                      : "none",
+                  opacity: hoveredId !== null && hoveredId !== index ? 0.7 : 1,
+                  transition: "filter 0.3s, opacity 0.3s",
+                }}
               >
                 <Image
                   src={item.image}
@@ -42,7 +55,7 @@ const CardService = () => {
                     ))}
                   </p>
                 </motion.div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -89,6 +102,4 @@ const CardService = () => {
       </AnimatePresence>
     </section>
   );
-};
-
-export default CardService;
+}

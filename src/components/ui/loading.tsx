@@ -65,7 +65,9 @@ export default function Loading() {
             />
           </motion.div>
           <motion.div
-            className="font-bayon text-neutral-800 text-xl tracking-widest"
+            className={`font-bayon text-neutral-800 text-xl tracking-widest ${
+              loadingText != "Waisely" ? "animate-pulse" : null
+            }`}
             initial={{ y: -50 }}
             animate={{
               y: loadingText === "Waisely" ? 24 : 0,

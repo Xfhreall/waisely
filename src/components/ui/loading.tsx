@@ -7,12 +7,19 @@ import { motion } from "framer-motion";
 
 export default function Loading() {
   const [isLoading, setIsLoading] = useState(true);
+  const [loadingText, setLoadingText] = useState("Loading...");
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-    return () => clearTimeout(timer);
+    const text = setTimeout(() => {
+      setLoadingText("Waisely");
+    }, 50);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(text);
+    };
   }, []);
 
   return (
@@ -34,7 +41,7 @@ export default function Loading() {
         className={`fixed inset-0 z-50 flex items-center justify-center pointer-events-none`}
       >
         <motion.div
-          className="relative"
+          className="relative flex flex-col items-center"
           initial={{ opacity: 1 }}
           animate={{ opacity: isLoading ? 1 : 0 }}
           transition={{ duration: 0.3 }}
@@ -44,7 +51,7 @@ export default function Loading() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{
               duration: 1.2,
-              delay: 0.2,
+              delay: 0.8,
               type: "spring",
               stiffness: 400,
             }}
@@ -57,9 +64,22 @@ export default function Loading() {
               height={128}
             />
           </motion.div>
-          <div className="absolute font-bayon -bottom-12 left-1/2 -translate-x-1/2 text-neutral-800 text-xl tracking-widest animate-pulse">
-            LOADING...
-          </div>
+          <motion.div
+            className="font-bayon text-neutral-800 text-xl tracking-widest"
+            initial={{ y: -50 }}
+            animate={{
+              y: loadingText === "Waisely" ? 24 : 0,
+              opacity: [0, 1],
+            }}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+              type: "spring",
+              stiffness: 200,
+            }}
+          >
+            {loadingText}
+          </motion.div>
         </motion.div>
       </div>
     </div>

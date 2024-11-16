@@ -13,7 +13,7 @@ const Quotes = () => {
       <div className="absolute h-48 w-full top-0 bg-gradient-to-b from-neutral-950 to-transparent"></div>
       <div className="absolute h-32 w-full bottom-0 bg-gradient-to-t from-neutral-950 to-transparent"></div>
       <main className="w-full h-full flex justify-center items-center">
-        <div className="w-8/12 space-y-8">
+        <div className="max-w-5xl space-y-8">
           <div className=" font-bayon text-7xl tracking-wide">
             <h2 className="text-start pl-14">&quot;Hijau dan bersih</h2>
             <h2 className="text-center">

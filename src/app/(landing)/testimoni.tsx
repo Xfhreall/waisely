@@ -9,7 +9,7 @@ import {
   TestimonialCategories,
 } from "@/lib/testimoni";
 
-export function Testimoni() {
+const Testimoni = () => {
   const [activeService, setActiveService] =
     useState<TestimonialCategories>("rumah tangga");
 
@@ -59,4 +59,6 @@ export function Testimoni() {
       </main>
     </section>
   );
-}
+};
+
+export default Testimoni;

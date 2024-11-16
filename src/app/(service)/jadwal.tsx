@@ -22,18 +22,18 @@ type ScheduleData = {
 
 const scheduleData: ScheduleData = {
   Senin: [
-    { location: "suhat", time: "05.00-07.00" },
+    { location: "soekarno hatta", time: "05.00-07.00" },
     { location: "panjaitan", time: "07.00-09.00" },
     { location: "veteran", time: "09.00-11.00" },
     { location: "sigura", time: "13.00-15.00" },
   ],
   Selasa: [
-    { location: "suhat", time: "05.00-09.00" },
+    { location: "soekarno hatta", time: "05.00-09.00" },
     { location: "veteran", time: "09.00-10.00" },
     { location: "sigura - gura", time: "10.00-12.00" },
   ],
   Rabu: [
-    { location: "suhat", time: "05.00-08.00" },
+    { location: "soekarno hatta", time: "05.00-08.00" },
     { location: "sigura - gura", time: "08.00-11.00" },
   ],
   Kamis: [
@@ -43,7 +43,7 @@ const scheduleData: ScheduleData = {
     { location: "bendungan sutami", time: "09.00-11.00" },
   ],
   Jumat: [
-    { location: "suhat", time: "05.00-06.00" },
+    { location: "soekarno hatta", time: "05.00-06.00" },
     { location: "ijen", time: "06.00-08.00" },
     { location: "veteran", time: "08.00-11.00" },
     { location: "merjosari", time: "13.00-14.00" },
@@ -51,12 +51,12 @@ const scheduleData: ScheduleData = {
   ],
   Sabtu: [
     { location: "belimbing", time: "5.00-11.00" },
-    { location: "suhat", time: "13.00-14.00" },
+    { location: "soekarno hatta", time: "13.00-14.00" },
     { location: "veteran", time: "14.00-15.00" },
   ],
   Minggu: [
     { location: "belimbing", time: "05.00-07.00" },
-    { location: "suhat", time: "07.00-08.00" },
+    { location: "soekarno hatta", time: "07.00-08.00" },
     { location: "ijen", time: "08.00-11.00" },
     { location: "veteran", time: "13.00-15.00" },
   ],

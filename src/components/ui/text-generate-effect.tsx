@@ -1,5 +1,6 @@
 "use client";
-import { useEffect } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -15,20 +16,47 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
   const wordsArray = words.split(" ");
+
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(entry.target);
+        }
       },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      }
+      { threshold: 0.7 }
     );
-  }, [scope.current]);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isInView) {
+      animate(
+        "span",
+        {
+          opacity: 1,
+          filter: filter ? "blur(0px)" : "none",
+        },
+        {
+          duration: duration ? duration : 1,
+          delay: stagger(0.2),
+        }
+      );
+    }
+  }, [isInView, scope.current, animate, filter, duration]);
 
   const renderWords = () => {
     return (
@@ -55,11 +83,9 @@ export const TextGenerateEffect = ({
   };
 
   return (
-    <div className={cn("font-bold", className)}>
+    <div ref={ref} className={cn("font-bold", className)}>
       <div className="mt-4">
-        <div className=" text-white text-7xl tracking-wide">
-          {renderWords()}
-        </div>
+        <div className="text-white text-7xl tracking-wide">{renderWords()}</div>
       </div>
     </div>
   );

@@ -4,6 +4,8 @@ import {
   IconBrandInstagram,
   IconMail,
 } from "@tabler/icons-react";
+import Image from "next/image";
+import logo from "@/public/assets/title.png";
 
 export default function Footer() {
   return (
@@ -14,7 +16,7 @@ export default function Footer() {
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div>
-            <h2 className="text-8xl font-bayon tracking-tighter">WAISELY</h2>
+            <Image src={logo} alt="logo" className="h-auto max-w-28" />
             <p className="text-sm md:text-base max-w-md font-semibold">
               Kelola Sampah Anda, Kami Tuntaskan dengan Tuntas!
             </p>

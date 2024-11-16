@@ -39,7 +39,7 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-export function Definisi() {
+const Definisi = () => {
   const data = [
     {
       title: "definisi",
@@ -147,4 +147,6 @@ export function Definisi() {
       <Timeline data={data} />
     </div>
   );
-}
+};
+
+export default Definisi;

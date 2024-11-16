@@ -85,7 +85,7 @@ export const FloatingNav = ({
         )}
       >
         <nav className="flex w-full font-medium items-center">
-          <Image src={title} alt="title" className="h-full w-auto" />
+          <Image src={title} alt="title" className="h-auto max-w-28" />
           <div className="flex ml-auto gap-8 items-center">
             {navItems.map((navItem, idx) => (
               <div

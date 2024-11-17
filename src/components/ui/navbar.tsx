@@ -63,7 +63,7 @@ export function Navbar() {
       </div>
       <div className="block md:hidden">
         <header
-          className={`fixed top-0 left-0 right-0 bg-transparent backdrop-blur-md text-white z-50 transition-transform duration-300 ${
+          className={`fixed top-0 left-0 right-0 bg-transparent backdrop-blur-md text-white z-30 transition-transform duration-300 ${
             isVisible ? "translate-y-0" : "-translate-y-full"
           }`}
         >

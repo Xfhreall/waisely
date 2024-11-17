@@ -19,7 +19,7 @@ export default function Footer() {
             <Image
               src={logo}
               alt="logo"
-              className="h-auto w-48 sm:w-52 invert"
+              className="h-auto w-48 sm:w-52 invert sm:mr-auto"
             />
             <p className="text-sm md:text-base max-w-md font-semibold text-center sm:text-start pt-2 sm:pt-0">
               Kelola Sampah Anda, Kami Tuntaskan dengan Tuntas!

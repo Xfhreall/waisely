@@ -46,7 +46,7 @@ const Definisi = () => {
       content: (
         <div>
           <AnimatedContent variant={fadeLeft} delay={0.3}>
-            <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-base font-normal mb-8">
+            <p className="text-neutral-200 text-xs md:text-base font-normal mb-8">
               Sampah adalah material atau benda yang tidak lagi diinginkan atau
               dibuang oleh pemiliknya. Dalam pengertian yang lebih luas, sampah
               adalah hasil sampingan dari aktivitas manusia, baik di rumah
@@ -74,12 +74,12 @@ const Definisi = () => {
       content: (
         <div>
           <AnimatedContent variant={fadeLeft} delay={0.3}>
-            <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-base font-normal mb-4">
+            <p className="text-neutral-200 text-xs md:text-base font-normal mb-4">
               Jenisnya bermacam-macam, diantaranya:
             </p>
           </AnimatedContent>
           <AnimatedContent variant={fadeLeft} delay={0.6}>
-            <ul className="list-disc pl-6 text-neutral-800 dark:text-neutral-200 text-xs md:text-base font-normal mb-8">
+            <ul className="list-disc pl-6 text-neutral-200 text-xs md:text-base font-normal mb-8">
               <li>
                 Sampah Organik: Sampah yang berasal dari bahan alami dan dapat
                 terurai dengan mudah di alam.
@@ -119,7 +119,7 @@ const Definisi = () => {
       content: (
         <div>
           <AnimatedContent variant={fadeLeft} delay={0.3}>
-            <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-base font-normal mb-8">
+            <p className="text-neutral-200 text-xs md:text-base font-normal mb-8">
               Sampah yang menumpuk dapat mengakibatkan beberapa pencemaran,
               seperti pencemaran tanah, air, dan udara. Selain dapat
               mengakibatkan pencemaran dapat beresiko terhadap kesehatan, yang

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import AnimatedTestimonials from "@/components/ui/animated-testimonials";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   allTestimonials,
@@ -49,7 +49,7 @@ const Testimoni = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="w-full md:w-2/3 pl-8"
+            className="w-full md:w-2/3 pl-0 sm:pl-8"
           >
             <AnimatedTestimonials
               testimonials={allTestimonials[activeService]}

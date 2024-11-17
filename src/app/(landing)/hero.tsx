@@ -54,7 +54,7 @@ const Hero = () => {
         priority
       />
       <div className="absolute h-48 w-full bottom-0 bg-gradient-to-t from-neutral-950 to-transparent"></div>
-      <main className="w-10/12 h-full flex mx-auto">
+      <main className="w-10/12 h-full flex mx-auto text-neutral-200">
         <div className="my-auto space-y-0 sm:space-y-4 text-center mx-auto">
           <h1 className="font-bayon text-7xl sm:text-8xl h-24 relative">
             {mounted &&

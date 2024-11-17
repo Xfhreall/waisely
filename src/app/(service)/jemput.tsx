@@ -15,7 +15,7 @@ const Jemput = () => {
             alt="Jemput"
           />
         </div>
-        <div className="w-full pt-4 space-y-4 grid">
+        <div className="w-full pt-4 space-y-4 grid text-neutral-200">
           <h2 className="font-bayon text-5xl text-center sm:text-start">
             Jemput sampah
           </h2>

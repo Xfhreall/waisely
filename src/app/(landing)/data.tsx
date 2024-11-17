@@ -57,7 +57,7 @@ export default function Data() {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen w-full overflow-x-hidden relative bg-neutral-950 py-8 sm:py-12 lg:py-16"
+      className="min-h-screen w-full overflow-x-hidden relative bg-neutral-950 py-8 sm:py-12 lg:py-16 text-neutral-200"
     >
       <motion.main
         className="w-11/12 md:w-10/12 lg:w-9/12 mx-auto h-full flex flex-col space-y-8 sm:space-y-12 justify-center"

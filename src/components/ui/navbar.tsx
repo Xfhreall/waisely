@@ -63,7 +63,7 @@ export function Navbar() {
       </div>
       <div className="block md:hidden">
         <header
-          className={`fixed top-0 left-0 right-0 bg-transparent backdrop-blur-md text-white z-30 transition-transform duration-300 ${
+          className={`fixed top-0 left-0 right-0 bg-transparent backdrop-blur-md text-white z-40 transition-transform duration-300 ${
             isVisible ? "translate-y-0" : "-translate-y-full"
           }`}
         >
@@ -113,7 +113,7 @@ export function Navbar() {
                 <nav className="flex-1 p-4">
                   <ul className="space-y-4">
                     {navItems.map((item, index) => (
-                      <li key={index} className=" border-b">
+                      <li key={index} className=" border-b border-neutral-800">
                         {item.dropdownItems ? (
                           <div className="relative">
                             <button
@@ -178,7 +178,7 @@ export function Navbar() {
 
                 <div className="p-4 border-t border-neutral-800">
                   <Button
-                    className="w-full bg-white text-black hover:bg-neutral-200"
+                    className="w-full bg-neutral-900 text-neutral-200 hover:bg-neutral-200"
                     size="lg"
                     onClick={() => setIsOpen(false)}
                   >

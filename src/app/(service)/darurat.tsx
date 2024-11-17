@@ -6,7 +6,7 @@ import Link from "next/link";
 const Darurat = () => {
   return (
     <section
-      className="w-full min-h-screen flex relative bg-neutral-950 py-14"
+      className="w-full min-h-screen flex relative bg-neutral-950 py-14 text-neutral-200"
       id="darurat"
     >
       <main className="flex flex-col sm:flex-row gap-12 w-10/12 mx-auto">
@@ -31,7 +31,7 @@ const Darurat = () => {
             kami” agar kami dapat memverifikasi keberadaan anda. Berikut section
             terkait informasi dimana Anda dapat meminta bantuan :
           </p>
-          <button className="border border-white py-3 px-10 rounded-[20px] hover:bg-neutral-100 hover:text-neutral-700 transition duration-300">
+          <button className="border border-white py-3 px-10 rounded-[20px] hover:bg-neutral-100 hover:text-neutral-700 transition duration-300 translate-x-1/4 sm:translate-x-0">
             <Link href="#footer">Hubungi kami</Link>
           </button>
         </div>

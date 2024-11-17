@@ -29,7 +29,7 @@ const About = () => {
       />
       <div className="absolute h-48 w-full top-0 bg-gradient-to-b from-neutral-950 to-transparent"></div>
       <div className="absolute h-32 w-full bottom-0 bg-gradient-to-t from-neutral-950 to-transparent"></div>
-      <main className="w-10/12 h-full mx-auto">
+      <main className="w-10/12 h-full mx-auto text-neutral-200">
         <div className="flex flex-col sm:flex-row items-center h-full justify-center w-full space-x-0 sm:space-x-8">
           <div className="font-bayon text-6xl sm:text-8xl w-9/12 sm:w-5/12 mb-4 sm:mb-0">
             <motion.h2

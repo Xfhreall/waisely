@@ -22,8 +22,8 @@ const Testimoni = () => {
       <h2 className="font-bayon text-7xl md:text-8xl text-center mb-16">
         TESTIMONI
       </h2>
-      <main className="flex flex-col md:flex-row w-10/12 mx-auto relative h-full">
-        <div className="w-full md:w-1/3 flex flex-col space-y-4 items-center justify-center sm:border-r-2 border-neutral-300">
+      <main className="flex flex-col md:flex-row w-10/12 sm:w-11/12 md:10/12 mx-auto relative h-full">
+        <div className="w-full md:w-1/3 flex flex-col space-y-4 items-center justify-center md:border-r-2 border-neutral-300">
           {serviceCol.map((item) => (
             <div
               key={item.title}
@@ -49,7 +49,7 @@ const Testimoni = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="w-full md:w-2/3 pl-0 sm:pl-8"
+            className="w-full md:w-2/3 pl-0 md:pl-8"
           >
             <AnimatedTestimonials
               testimonials={allTestimonials[activeService]}

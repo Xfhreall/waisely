@@ -55,8 +55,8 @@ const Hero = () => {
       />
       <div className="absolute h-48 w-full bottom-0 bg-gradient-to-t from-neutral-950 to-transparent"></div>
       <main className="w-10/12 h-full flex mx-auto">
-        <div className="my-auto w-10/12 space-y-4 text-center mx-auto">
-          <h1 className="font-bayon text-8xl h-24 relative">
+        <div className="my-auto space-y-0 sm:space-y-4 text-center mx-auto">
+          <h1 className="font-bayon text-7xl sm:text-8xl h-24 relative">
             {mounted &&
               text.split("").map((char, index) => {
                 const { x, y } = getInitialPosition(char);
@@ -87,9 +87,9 @@ const Hero = () => {
                 );
               })}
           </h1>
-          <div className="space-y-4">
+          <div className="space-y-2 sm:space-y-4">
             <motion.p
-              className="text-xl font-bold"
+              className="text-base sm:text-xl font-bold"
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 3.3 }}
@@ -97,7 +97,7 @@ const Hero = () => {
               Kelola Sampah Anda, Kami Tuntaskan dengan Tuntas!
             </motion.p>
             <motion.p
-              className="text-xl"
+              className="text-sm sm:text-xl"
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.7, delay: 3.8 }}

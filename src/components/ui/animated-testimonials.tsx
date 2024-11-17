@@ -126,7 +126,7 @@ export const AnimatedTestimonials = ({
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex justify-between flex-col py-4">
+        <div className="flex justify-between flex-col sm:py-4">
           <motion.div
             key={active}
             initial={{
@@ -186,7 +186,7 @@ export const AnimatedTestimonials = ({
               <StarRating rating={testimonials[active].rating} />
             </motion.div>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-4">
+          <div className="flex gap-4 pt-8 md:pt-4">
             <button
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"

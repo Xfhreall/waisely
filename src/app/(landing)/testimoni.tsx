@@ -22,8 +22,8 @@ const Testimoni = () => {
       <h2 className="font-bayon text-7xl md:text-8xl text-center mb-16">
         TESTIMONI
       </h2>
-      <main className="flex flex-col md:flex-row w-full container relative h-full">
-        <div className="w-full md:w-1/3 flex flex-col space-y-4 items-center justify-center border-r-2 border-neutral-300">
+      <main className="flex flex-col md:flex-row w-10/12 mx-auto relative h-full">
+        <div className="w-full md:w-1/3 flex flex-col space-y-4 items-center justify-center sm:border-r-2 border-neutral-300">
           {serviceCol.map((item) => (
             <div
               key={item.title}

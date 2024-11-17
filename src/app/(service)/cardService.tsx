@@ -15,13 +15,13 @@ export default function Component() {
       id="service"
     >
       <main className="w-full h-full flex justify-center items-center py-16">
-        <div className="text-8xl space-y-12">
+        <div className="text-5xl sm:text-8xl space-y-12">
           <h2 className="text-center font-bayon text-white">Layanan</h2>
           <div className="flex items-center gap-16 flex-wrap justify-center">
             {service.map((item, index) => (
               <motion.div
                 key={index}
-                className="w-[300px] h-[300px] relative cursor-pointer"
+                className="w-[300px] sm:h-[300px] h-[100px] relative cursor-pointer"
                 onClick={() => setSelectedId(index)}
                 onHoverStart={() => setHoveredId(index)}
                 onHoverEnd={() => setHoveredId(null)}
@@ -47,12 +47,15 @@ export default function Component() {
                   layoutId={`service-content-${index}`}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <p className="z-10 max-w-sm text-3xl font-bold text-center text-white">
+                  <p className="z-10 max-w-sm text-3xl font-bold text-center text-white hidden sm:block">
                     {item.title.split(" ").map((word, wordIndex) => (
                       <span key={wordIndex} className="block">
                         {word.toUpperCase()}
                       </span>
                     ))}
+                  </p>
+                  <p className="z-10 w-10/12 max-w-sm text-2xl font-bold text-center text-white block sm:hidden">
+                    {item.title.toUpperCase()}
                   </p>
                 </motion.div>
               </motion.div>
@@ -70,7 +73,7 @@ export default function Component() {
             onClick={() => setSelectedId(null)}
           >
             <motion.div
-              className="bg-neutral-200 p-8 rounded-lg max-w-2xl w-full grid"
+              className="bg-neutral-200 p-8 rounded-lg mx-4 max-w-2xl w-full grid"
               onClick={(e) => e.stopPropagation()}
             >
               <Image

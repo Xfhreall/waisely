@@ -67,13 +67,15 @@ const Jadwal = () => {
 
   return (
     <section
-      className="w-full min-h-screen flex relative bg-neutral-950 py-14 text-white"
+      className="w-full min-h-screen overflow-x-clip flex relative bg-neutral-950 py-14 text-white"
       id="jadwal"
     >
-      <main className="container flex flex-col lg:flex-row gap-12">
+      <main className="flex flex-col-reverse sm:flex-row gap-12 w-10/12 mx-auto">
         <div className="w-full pt-4 space-y-8">
-          <h2 className="font-bayon text-5xl">Jadwal operasi truk</h2>
-          <p className="text-xl leading-7">
+          <h2 className="font-bayon text-5xl text-center sm:text-start">
+            Jadwal operasi truk
+          </h2>
+          <p className="text-sm sm:text-xl leading-6 sm:leading-7 text-center sm:text-start">
             Begitu Anda sudah memberikan alamat dengan detail, Anda dapat
             melihat jadwal truk beroperasi di daerah Anda. Dengan begitu Anda
             dapat mempersiapkan dan memperkirakan kapan truk sampah akan tiba.
@@ -82,7 +84,7 @@ const Jadwal = () => {
 
           <div className="space-y-6">
             <Select onValueChange={setSelectedDay} value={selectedDay}>
-              <SelectTrigger className="w-56 h-8 bg-white text-black">
+              <SelectTrigger className="w-full sm:w-56 h-8 bg-white text-black">
                 <SelectValue placeholder="Pilih hari" />
               </SelectTrigger>
               <SelectContent className="bg-neutral-200 text-neutral-800">
@@ -121,7 +123,7 @@ const Jadwal = () => {
 
         <div className="flex items-center justify-center w-max h-full">
           <Image
-            className="object-cover h-full w-60"
+            className="object-cover h-[90px] w-[300px] sm:h-full sm:w-60"
             src={jadwal}
             alt="Jadwal Operasi Truk"
             priority

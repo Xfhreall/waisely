@@ -9,17 +9,19 @@ const Darurat = () => {
       className="w-full min-h-screen flex relative bg-neutral-950 py-14"
       id="darurat"
     >
-      <main className="container flex gap-12">
+      <main className="flex flex-col sm:flex-row gap-12 w-10/12 mx-auto">
         <div className="flex items-center justify-center w-max h-full">
           <Image
-            className=" object-cover h-full w-60"
+            className=" object-cover h-[90px] w-[300px] sm:h-full sm:w-60"
             src={darurat}
             alt="Jemput"
           />
         </div>
         <div className="w-full pt-4 space-y-4 ">
-          <h2 className="font-bayon text-5xl">Kondisi Darurat</h2>
-          <p className="text-xl leading-7">
+          <h2 className="font-bayon text-5xl text-center sm:text-start">
+            Kondisi Darurat
+          </h2>
+          <p className="text-sm sm:text-xl leading-6 sm:leading-7 text-center sm:text-start">
             Bagi Anda yang membutuhkan pengangkutan sampah secara mendadak,
             terutama ketika Anda memiliki acara besar yang menghasilkan sampah
             dalam kuantitas yang banyak, untuk menghindari penumpukan sampah

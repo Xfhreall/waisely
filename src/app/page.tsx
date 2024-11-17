@@ -12,7 +12,7 @@ const Quotes = dynamic(() => import("./(landing)/quotes"));
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative overflow-x-clip">
       <section className="-z-[11] sticky top-0">
         <Hero />
       </section>

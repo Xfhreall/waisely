@@ -173,7 +173,7 @@ export default function MyForm() {
           )}
         />
 
-        <div className="flex justify-end">
+        <div className="flex justify-start sm:justify-end">
           <Button
             type="submit"
             className="bg-transparent text-neutral-100 border-neutral-100 border rounded-2xl hover:text-neutral-800 py-3 px-10"

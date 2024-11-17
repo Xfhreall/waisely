@@ -59,7 +59,7 @@ export default function Loading() {
             <Image
               src={logo}
               alt="Waisely Logo"
-              className="w-32 h-32"
+              className=" w-24 h-24 md:w-32 md:h-32"
               width={128}
               height={128}
             />

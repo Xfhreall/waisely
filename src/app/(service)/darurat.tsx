@@ -10,7 +10,7 @@ const Darurat = () => {
       id="darurat"
     >
       <main className="flex flex-col sm:flex-row gap-12 w-10/12 mx-auto">
-        <div className="flex items-center justify-center w-max h-full">
+        <div className="flex items-center justify-center w-max h-full mx-auto">
           <Image
             className=" object-cover h-[90px] w-[300px] sm:h-full sm:w-60"
             src={darurat}

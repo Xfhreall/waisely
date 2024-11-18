@@ -121,7 +121,7 @@ const Jadwal = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center h-max w-max">
+        <div className="flex items-center justify-center h-full w-max mx-auto">
           <Image
             className="object-cover h-[90px] w-[300px] sm:h-full sm:w-60"
             src={jadwal}
